@@ -1,14 +1,25 @@
 import React from 'react';
-import Header from './components/Header';
-import Main from './components/Main';
-import Footer from './components/Footer';
+import './styles/App.css';
+import Header from './Header'
+import Main from './Main'
+import Footer from './Footer'
+import Container from 'react-bootstrap/Container'
+
 function App() {
   return (
-    <div>
-      <Header />
-      <Main />
-      <Footer />
+    <Container>
+      <div className="App">
+        <header>
+          <Header />
+        </header>
+        <main>
+          <Main />
+        </main>
+        <footer>
+          <Footer />
+        </footer> 
     </div>
+    </Container>
   );
 }
 
