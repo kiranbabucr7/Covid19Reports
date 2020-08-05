@@ -1,26 +1,18 @@
-import React from 'react';
-import './styles/App.css';
-import Header from './Header'
-import Main from './Main'
-import Footer from './Footer'
-import Container from 'react-bootstrap/Container'
+import React from 'react'
 
-function App() {
-  return (
-    <Container>
-      <div className="App">
-        <header>
-          <Header />
-        </header>
-        <main>
-          <Main />
-        </main>
-        <footer>
-          <Footer />
-        </footer> 
-    </div>
-    </Container>
-  );
+class App extends React.Component{
+    constructor (){
+        super()
+        this.state={
+            
+        }
+    }
+    render(){
+        return(
+            <div>
+                <h1>hai world </h1>
+            </div>
+        )
+    }
 }
-
-export default App;
+export default App
