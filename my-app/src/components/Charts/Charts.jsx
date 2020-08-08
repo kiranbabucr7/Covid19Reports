@@ -2,8 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { fetchDailyData } from '../../api/index'
 import { Line, Bar } from 'react-chartjs-2'
 import styels from './Charts.module.css'
-const Charts = () => {
-
+const Charts = ( {data: {confirmed, recovered, deaths}, country} ) => {
     const [dailyData, setDailyData] = useState([])
 
     useEffect(() => {
@@ -11,7 +10,7 @@ const Charts = () => {
             setDailyData(await fetchDailyData())
         } 
         fetchAPI()
-    })
+    }, [])
 
     const lineChart = (
         dailyData.length?(
@@ -34,10 +33,39 @@ const Charts = () => {
             }
         /> ):null
     )
+
+    const barChart = (
+        confirmed?(
+            <Bar 
+                data={
+                    {
+                        labels: ['infected', 'recovered', 'deaths'],
+                        datasets:[
+                            {
+                                label:'poeple',
+                                backgroundColor: [
+                                    'rgba(0, 0, 255, 0.5)',
+                                    'rgba(0, 255, 0, 0.5)',
+                                    'rgba(255, 0, 0, 0.5)',
+                                ],
+                                data:[ confirmed.value, recovered.value, deaths.value]
+                            }
+                        ]
+                    }
+                }
+                options={
+                    {
+                        legend:{display: false},
+                        title:{display: true, text:`Current State In ${country}`}
+                    }
+                }
+            />
+        ):null
+    )
     return (
-        <h1 className={styels.container}>
-            {lineChart}
-        </h1>
+        <div className={styels.container}>
+            { country? barChart: lineChart }
+        </div>
     )
 }
 export default Charts
