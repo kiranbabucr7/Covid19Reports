@@ -4,7 +4,7 @@ import { Line, Bar } from 'react-chartjs-2'
 import styels from './Charts.module.css'
 const Charts = ( {data: {confirmed, recovered, deaths}, country} ) => {
     const [dailyData, setDailyData] = useState([])
-
+    country?console.log("bar chart"):console.log("line chart")
     useEffect(() => {
         const fetchAPI = async () => {
             setDailyData(await fetchDailyData())

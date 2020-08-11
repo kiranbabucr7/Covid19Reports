@@ -5,12 +5,15 @@
     margin: 0 2% !important ;
 }
 .confirmed{
+    border: 3px dotted rgba(0, 0, 255, 0.5);
     border-bottom: 10px solid rgba(0, 0, 255, 0.5);
 }
 .recovered{
+    border: 3px dotted rgba(0, 255, 0, 0.5);
     border-bottom: 10px solid rgba(0, 255, 0, 0.5);
 }
 .deaths{
+    border: 3px dotted rgba(255, 0, 0, 0.5);
     border-bottom: 10px solid rgba(255, 0, 0, 0.5);
 }
 @media (max-width: 770px){

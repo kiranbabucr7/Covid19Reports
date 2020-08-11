@@ -9,7 +9,7 @@ body{
 }
 .image{
     width: 370px;
-    margin-top: 50px;
+    margin-top: 10px;
 }
 @media (max-width: 770px){
     .container {

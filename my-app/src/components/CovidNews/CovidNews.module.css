@@ -1,0 +1,15 @@
+.container{
+   width: 70%;
+}
+.cardContent{
+    display: flex;
+    flex-direction: column;
+}
+.newsCard{
+    border-bottom: 10px solid rgba(255, 0, 0, 0.5); 
+}
+@media (max-width:770px){
+    .container{
+        width: 98%;
+     }
+}

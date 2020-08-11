@@ -1,0 +1,20 @@
+.myNavbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.myNav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.myNavLniks{
+    padding: 0px 40px;
+}
+.myNavLniks:hover{
+    text-decoration: none;   
+}
+.navLinkText{
+    font-size: 20px;
+    color: white;
+}

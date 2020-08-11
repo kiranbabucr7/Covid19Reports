@@ -5,14 +5,14 @@ import cx from 'classnames'
 
 import styles from './Cards.module.css'
 
-const Cards = ( { data: { confirmed, recovered, deaths , lastUpdate } } ) =>{
-    if( !confirmed){
+const Cards = ( { data: { confirmed, recovered, deaths , lastUpdate }, country } ) =>{
+    if ( !confirmed ) {
         return "loading"
     }
     const cardDatas = [
         confirmed={
             style:styles.confirmed,
-            mainMessage:'infected',
+            mainMessage:'Infected',
             subMessage:'Number of active cases of covid 19',
             value:confirmed.value,
         },
@@ -24,8 +24,8 @@ const Cards = ( { data: { confirmed, recovered, deaths , lastUpdate } } ) =>{
         },
         deaths={
             style:styles.deaths,
-            mainMessage:'infected',
-            subMessage:'Number of active cases of covid 19',
+            mainMessage:'Deaths',
+            subMessage:'Number of Deaths due to covid 19',
             value:deaths.value,
         }
     ]
@@ -33,7 +33,8 @@ const Cards = ( { data: { confirmed, recovered, deaths , lastUpdate } } ) =>{
         <Grid item component={Card} xs={12} md={3} className={cx(styles.card , cardData.style)}>
             <CardContent>
                 <Typography color="textSecondary" gutterBottom>{cardData.mainMessage}</Typography>
-                <Typography variant="h5">
+                <hr />
+                <Typography color="textPrimary" variant="h5">
                     <CountUp start={0} end={cardData.value} duration={2.5} separator=","/>
                 </Typography>
                 <Typography color="textSecondary">{new Date(lastUpdate).toDateString()}</Typography> 
@@ -43,6 +44,7 @@ const Cards = ( { data: { confirmed, recovered, deaths , lastUpdate } } ) =>{
     )
     return(
         <div className={styles.container}>
+            <div>{country}</div>
             <Grid container spacing={3} justify="center">
                 {cards}
             </Grid>
